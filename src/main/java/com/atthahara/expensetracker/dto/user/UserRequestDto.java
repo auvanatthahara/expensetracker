@@ -23,4 +23,8 @@ public class UserRequestDto {
     @Setter
     private LocalDateTime createdAt;
 
+    @Getter
+    @Setter
+    private String password;
+
 }

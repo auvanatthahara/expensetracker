@@ -21,10 +21,16 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping
-    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto userDto) {
-        final UserResponseDto response = userService.createUser(userDto);
+    @PostMapping("/create")
+    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto data) {
+        final UserResponseDto response = userService.createUser(data);
         return new ResponseEntity<UserResponseDto>(response, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserResponseDto> login(@RequestBody UserRequestDto data) {
+        final UserResponseDto response = userService.login(data);
+        return ResponseEntity.ok(response);
     }
 
 }
